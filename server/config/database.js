@@ -1,7 +1,7 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
 const path = require('path');
-const db = 'my-db-name';
+const db = 'witches-db';
 
 mongoose.connect(`mongodb://localhost:27017/${db}`, {useNewUrlParser: true, useUnifiedTopology: true});
 
