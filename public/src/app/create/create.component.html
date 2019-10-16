@@ -1,0 +1,13 @@
+<p>create works!</p>
+
+<div *ngFor="let error of errors">
+  <p>{{ error.path }}</p>
+  <p>{{ error.message }}</p>
+</div>
+
+<div>
+  Name (required): <input type="text" [(ngModel)]="newWitch.name"><br>
+  Broom: <input type="text" [(ngModel)]="newWitch.broom"><br>
+  Coven (required): <input type="text" [(ngModel)]="newWitch.coven"><br>
+  <input (click)="submitWitch()" type="submit" value="New Witch">
+</div>

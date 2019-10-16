@@ -12,6 +12,10 @@ app.use(express.static(path.join(__dirname, './public/dist/public')));
 require('./server/config/database');
 require('./server/config/routes')(app);
 
+app.all("*", (req,res,next) => {
+    res.sendFile(path.resolve("./public/dist/public/index.html"))
+});
+
 
 app.listen(PORT, function(){
     console.log(`Full MEAN on port ${PORT}`);

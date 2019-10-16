@@ -1,46 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from './http.service';
+import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-create',
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.css']
 })
+export class CreateComponent implements OnInit {
 
-export class AppComponent implements OnInit {
-  constructor(private http: HttpService) {}
-
-  newWitch: any = {
+  newWitch = {
     name: '',
     broom: '',
     coven: ''
   };
-  hasErrors = false;
-  errors: any = [];
-  witches = [];
+  errors = [];
 
+  constructor(private http: HttpService, private router: Router) { }
 
   ngOnInit() {
-    this.getAllWitches();
-  }
 
-  deleteWitch(id) {
-    const observable = this.http.deleteById(id);
-    observable.subscribe((data: any) => {
-      this.getAllWitches();
-    });
-  }
-
-  getAllWitches() {
-    const observable = this.http.getAll();
-    observable.subscribe((data: any) => {
-      this.witches = data;
-    });
   }
 
   submitWitch() {
-    // tslint:disable-next-line:no-debugger
-    debugger;
     const observable = this.http.createWitch(this.newWitch);
     observable.subscribe((data: any) => {
       if (data.message === 'fail') {
@@ -53,7 +35,8 @@ export class AppComponent implements OnInit {
           broom: '',
           coven: ''
         };
-        this.getAllWitches();
+        // this.getAllWitches();
+        this.router.navigate(['/home']);
       }
     });
   }
@@ -68,4 +51,5 @@ export class AppComponent implements OnInit {
 
     return errorArr;
   }
+
 }

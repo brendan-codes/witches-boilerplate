@@ -7,11 +7,15 @@ import { HttpService } from './http.service';
 import { IndexComponent } from './index/index.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CreateComponent } from './create/create.component';
+import { WitchComponent } from './witch/witch.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
+    CreateComponent,
+    WitchComponent
   ],
   imports: [
     FormsModule,

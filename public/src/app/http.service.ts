@@ -6,8 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
 
-  constructor(private http: HttpClient) {
-   }
+  constructor(private http: HttpClient) {}
 
    getAll() {
      return this.http.get('/witches');
@@ -19,6 +18,10 @@ export class HttpService {
 
    getById(id) {
      return this.http.get(`/witches/${id}`);
+   }
+
+   updateById(id, data) {
+     return this.http.put(`/witches/${id}`, data);
    }
 
    deleteById(id) {

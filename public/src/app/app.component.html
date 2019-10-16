@@ -1,4 +1,4 @@
-<div *ngFor="let error of errors">
+<!-- <div *ngFor="let error of errors">
   <p>{{ error.path }}</p>
   <p>{{ error.message }}</p>
 </div>
@@ -16,7 +16,8 @@
   <p>broom: {{ witch.broom }}</p>
   <p>coven: {{ witch.coven }}</p>
   <button (click)="deleteWitch(witch._id)">Delete {{ witch.name }}!</button>
-</div>
+</div> -->
 
-
+<button [routerLink]="['/home']">Home</button>
+<button [routerLink]="['/create']">Create</button>
 <router-outlet></router-outlet>
