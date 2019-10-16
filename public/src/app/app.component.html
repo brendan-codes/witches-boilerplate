@@ -1,13 +1,7 @@
-<div *ngFor="let witch of witches">
-  <p>name: {{ witch.name }}</p>
-  <p>broom: {{ witch.broom }}</p>
-  <p>coven: {{ witch.coven }}</p>
+<div *ngFor="let error of errors">
+  <p>{{ error.path }}</p>
+  <p>{{ error.message }}</p>
 </div>
-
-
-{{ newWitch.name }} <br>
-{{ newWitch.broom }} <br>
-{{ newWitch.coven }} <br>
 
 <div>
   Name (required): <input type="text" [(ngModel)]="newWitch.name"><br>
@@ -16,9 +10,13 @@
   <input (click)="submitWitch()" type="submit" value="New Witch">
 </div>
 
-<div *ngIf="hasErrors">
-  <h3>Errors:</h3>
-  {{ errors | json }}
+
+<div *ngFor="let witch of witches">
+  <p>name: {{ witch.name }}</p>
+  <p>broom: {{ witch.broom }}</p>
+  <p>coven: {{ witch.coven }}</p>
+  <button (click)="deleteWitch(witch._id)">Delete {{ witch.name }}!</button>
 </div>
+
 
 <router-outlet></router-outlet>
